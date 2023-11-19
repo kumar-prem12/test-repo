@@ -17,7 +17,7 @@
 		</div>
 	    @endif
         </div>
-        <div><button><a href="#">Create Student</a></button></div><br>
+        <div><button><a href="{{route('createStudent')}}">Create Student</a></button></div><br>
         <div>
             <table style='border-collapse:collapse'>
                 <thead>
@@ -29,22 +29,22 @@
                     <th width="150" style="border: 1px solid black;">Action</th>
                 </thead>
                 <tbody>
-                    <!-- foreach($courseLists as $course) -->
+                    @foreach($studentLists as $student)
                     <tr style="border: 1px solid black;">
-                        <td style="border: 1px solid black;"></td>
-                        <td style="border: 1px solid black;"></td>
-                        <td style="border: 1px solid black;"></td>
-                        <td style="border: 1px solid black;"></td>
-                        <td style="border: 1px solid black;"></td>
-                        <td style="display:flex;"><span style="margin-right:15px;"><a href="#"><button>Edit</button></a></span>
-                         <span><form method="POST" action="#">
+                        <td style="border: 1px solid black;">{{$student->student_name}}</td>
+                        <td style="border: 1px solid black;">{{$student->course_name}}</td>
+                        <td style="border: 1px solid black;">{{$student->address}}</td>
+                        <td style="border: 1px solid black;">{{$student->email}}</td>
+                        <td style="border: 1px solid black;">{{$student->dob}}</td>
+                        <td style="display:flex;"><span style="margin-right:15px;"><a href="{{route('editStudent',$student->id)}}"><button>Edit</button></a></span>
+                         <span><form method="POST" action="{{route('deleteStudent')}}">
                             @method('delete')
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
-                            <input type="hidden" name="id" value="#">
-                            <button type="button"><a >Delete</a></button>
+                            <input type="hidden" name="id" value="{{$student->id}}">
+                            <button><a onclick="return confirm('Are you sure you want to delete this student?');">Delete</a></button>
                         </form></span></td>
                     </tr>
-                    <!-- endforeach -->
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -19,10 +19,16 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/studentLists', [StudentController::class, 'studentLists'])->name('studentLists');
 Route::get('/courseLists', [CourseController::class, 'courseLists'])->name('courseLists');
 Route::get('/createCourse', [CourseController::class, 'createCourse'])->name('createCourse');
 Route::post('/storeCourse', [CourseController::class, 'storeCourse'])->name('storeCourse');
 Route::get('/editCourse/{id}', [CourseController::class, 'editCourse'])->name('editCourse');
 Route::post('/updateCourse/{id}', [CourseController::class, 'updateCourse'])->name('updateCourse');
 Route::delete('/deleteCourse', [CourseController::class, 'deleteCourse'])->name('deleteCourse');
+
+Route::get('/studentLists', [StudentController::class, 'studentLists'])->name('studentLists');
+Route::get('/createStudent', [StudentController::class, 'createStudent'])->name('createStudent');
+Route::delete('/deleteStudent', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
+Route::post('/storeStudent', [StudentController::class, 'storeStudent'])->name('storeStudent');
+Route::get('/editStudent/{id}', [StudentController::class, 'editStudent'])->name('editStudent');
+Route::post('/updateStudent/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
