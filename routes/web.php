@@ -32,3 +32,8 @@ Route::delete('/deleteStudent', [StudentController::class, 'deleteStudent'])->na
 Route::post('/storeStudent', [StudentController::class, 'storeStudent'])->name('storeStudent');
 Route::get('/editStudent/{id}', [StudentController::class, 'editStudent'])->name('editStudent');
 Route::post('/updateStudent/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
+
+Route::get('/getStudent', [StudentController::class, 'getStudent'])->name('getStudent');
+
+
+

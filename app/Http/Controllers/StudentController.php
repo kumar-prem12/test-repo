@@ -76,4 +76,9 @@ class StudentController extends Controller
         $student = Student::find($request->id)->delete();
         return redirect()->route('studentLists');
     }
+
+    public function getStudent(Student $student){
+        $studentList  = $student->getStudentList();
+        dd($studentList[1]);
+    }
 }
